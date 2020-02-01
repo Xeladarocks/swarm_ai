@@ -1,8 +1,6 @@
 class Boid {
     static radius = 20;
     static detection_radius = 200;
-    static close_threshold = 1;
-    static directions = [-1, 1];
     static avoidance_range = 50;
     constructor(x, y) {
         this.position = createVector(x, y);
@@ -11,10 +9,6 @@ class Boid {
         this.acceleration = createVector();
         this.maxForce = 1;
         this.maxSpeed = 4;
-
-        this.dir_timer = 0;
-        this.dir_timer_end = random(10, 50);
-        this.rand_dir = createVector(Boid.directions[Math.floor(Math.random()*Boid.directions.length)], Boid.directions[Math.floor(Math.random()*Boid.directions.length)]);
     }
     draw() {
         fill(color(0, 0, 255));
@@ -26,12 +20,6 @@ class Boid {
     }
 
     update() {
-        if(this.dir_timer >= this.dir_timer_end) {
-            this.dir_timer = 0;
-            this.dir_timer_end = random(10, 50); // -1, 0, 1
-            this.rand_dir.set(Boid.directions[Math.floor(Math.random()*Boid.directions.length)], Boid.directions[Math.floor(Math.random()*Boid.directions.length)]);
-        } else this.dir_timer++;
-
         this.position.add(this.velocity.copy().mult(deltaTime/50));
         this.velocity.add(this.acceleration);
         this.velocity.limit(this.maxSpeed);

@@ -22,7 +22,7 @@ function draw() {
             boid.flock(flock);
             boid.update();
         } else {
-            boid.velocity = boid.rand_dir;
+            boid.acceleration = createVector(random(-1, 1), random(-1, 1));
             boid.update();
         }
         boid.draw();
