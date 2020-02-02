@@ -3,7 +3,7 @@ function setup() {
     frameRate(20);
 
     alignSlider = createSlider(0, 2, 1.4, 0.1);
-    cohesionSlider = createSlider(0, 2, 1, 0.1);
+    cohesionSlider = createSlider(0, 2, 0.8, 0.1);
     separationSlider = createSlider(0, 2, 1.6, 0.1);
 
     swarm = new Swarm();
