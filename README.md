@@ -1,4 +1,4 @@
-# Swarm AI
+# Flock
 
 A flock simulator. That's it.
 
